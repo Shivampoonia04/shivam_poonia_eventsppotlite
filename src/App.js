@@ -1,27 +1,24 @@
-// src/App.js
 import React, { useState } from 'react';
-import events from './mockData'; // Ensure this file contains your event data
+import events from './mockData';
 import EventCard from './components/EventCard';
 import EventDetailsModal from './components/EventDetailsModal';
 import SearchBar from './components/SearchBar';
+import PropTypes from 'prop-types';
 import './styles.css';
 
 const App = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedEvent, setSelectedEvent] = useState(null);
 
-    // Filter events based on search term
     const filteredEvents = events.filter(event =>
         event.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
         event.location.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
-    // Handle event card click
     const handleEventClick = (event) => {
         setSelectedEvent(event);
     };
 
-    // Close the modal
     const closeModal = () => {
         setSelectedEvent(null);
     };
@@ -36,7 +33,7 @@ const App = () => {
                         <EventCard key={event.id} event={event} onClick={handleEventClick} />
                     ))
                 ) : (
-                    <p>No events found.</p> // Message when no events match the search
+                    <p>No events found.</p>
                 )}
             </div>
             {selectedEvent && (
@@ -44,6 +41,11 @@ const App = () => {
             )}
         </div>
     );
+};
+
+// You can remove the PropTypes definition if there are no props passed to App
+App.propTypes = {
+    events: PropTypes.array, // Adjust based on your actual props (currently not needed)
 };
 
 export default App;

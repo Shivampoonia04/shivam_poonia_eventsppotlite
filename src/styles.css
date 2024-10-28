@@ -48,9 +48,10 @@ h1 {
 
 /* Event List Styles */
 .event-list {
-    display: flex; /* Use flexbox for layout */
-    flex-wrap: wrap; /* Allow wrapping of items */
-    gap: 20px; /* Space between event cards */
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 /* Event Card Styles */

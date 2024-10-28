@@ -48,15 +48,14 @@ h1 {
 
 /* Event List Styles */
 .event-list {
-    display: inline-flex; /* Flexbox for layout */
-    background:rgba(177, 30, 30, 0.532); /* White background for event cards */
+    display: flex; /* Use flexbox for layout */
     flex-wrap: wrap; /* Allow wrapping of items */
     gap: 20px; /* Space between event cards */
 }
 
 /* Event Card Styles */
 .event-card {
-    background:#789a41; /* White background for event cards */
+    background: #789a41; /* Background color for event cards */
     border: 1px solid #ddd; /* Light gray border */
     border-radius: 8px; /* Rounded corners */
     padding: 15px; /* Padding inside the card */
@@ -110,6 +109,9 @@ button:hover {
     display: flex; /* Flexbox for centering */
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
+    visibility: hidden; /* Hide modal initially */
+    opacity: 0; /* Initial opacity */
+    transition: visibility 0.3s, opacity 0.3s; /* Smooth visibility and opacity change */
 }
 
 .modal-content {
@@ -123,6 +125,30 @@ button:hover {
 
 .modal-content h2 {
     margin-top: 0; /* No margin above title */
+}
+
+/* Show modal on click */
+.event-card button[type="button"] {
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.event-card button[type="button"]:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: translateY(-2px); /* Lift effect on hover */
+}
+
+.event-card button[type="button"]:focus {
+    outline: none; /* Remove outline */
+}
+
+.event-card button[type="button"]:active {
+    transform: translateY(0); /* Reset lift effect on active */
+}
+
+/* Show modal on click */
+.event-card button[type="button"]:focus + .modal {
+    visibility: visible; /* Show modal on focus */
+    opacity: 1; /* Full opacity on focus */
 }
 
 /* Responsive Styles */

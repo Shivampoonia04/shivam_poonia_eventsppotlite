@@ -20,6 +20,9 @@ const EventGallery = () => {
             <div className="event">
                 <img src={musicFestival} alt="Music Festival" />
                 <h2>Music Festival</h2>
+            </div><div className="event">
+                <img src={Craft Beer Festival} alt="Craft Beer Festival" />
+                <h2>Music Festival</h2>
             </div>
         </div>
     );
